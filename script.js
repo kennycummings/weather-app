@@ -57,7 +57,8 @@ $(document).ready(function () {
       <h2>${data.city.name}</h2>
       <p>Temperature: ${currentWeather.temp} °F</p>
       <p>Humidity: ${currentWeather.humidity}%</p>
-      <p>Wind: ${windSpeed} m/s, ${windDeg}&deg;</p>
+      <p>Wind Speed: ${windSpeed} m/s</p>
+      <p>Wind Direction: ${windDeg}&deg</p>
       <img src="https://openweathermap.org/img/w/${currentIcon}.png" alt="Current Weather Icon">
     `);
 
@@ -77,7 +78,8 @@ $(document).ready(function () {
               <h5 class="card-title">${forecastDate}</h5>
               <p class="card-text">Temperature: ${forecast.temp} °F</p>
               <p class="card-text">Humidity: ${forecast.humidity}%</p>
-              <p class="card-text">Wind: ${forecastWindSpeed} m/s, ${forecastWindDeg}&deg;</p>
+              <p class="card-text">Wind: ${forecastWindSpeed} m/s</p>
+              <p class="card-text">Wind Direction: ${forecastWindDeg}&deg</p>
               <img src="https://openweathermap.org/img/w/${forecastIcon}.png" alt="Forecast Icon">
             </div>
           </div>
