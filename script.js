@@ -13,12 +13,11 @@ $(document).ready(function () {
     event.preventDefault();
 
     var city = cityinputEl.val();
-
-    // Log the city value to the console
     console.log("City:", city);
 
-    // Call a function to fetch weather data
     getWeatherData(city);
+
+    addToHistory(city);
   });
 
   function getWeatherData(city) {
@@ -31,28 +30,23 @@ $(document).ready(function () {
         units: units
       },
       success: function (data) {
-        // Update the UI elements with the fetched data
         updateWeatherUI(data);
       },
       error: function (error) {
         console.error("Error fetching weather data:", error);
-        // Handle errors and update the UI accordingly
       }
     });
   }
 
   function updateWeatherUI(data) {
-    // Clear previous data
     currentWeatherEl.empty();
     forecastEl.empty();
 
-    // Extract current weather details
     var currentWeather = data.list[0].main;
     var windSpeed = data.list[0].wind.speed;
     var windDeg = data.list[0].wind.deg;
     var currentIcon = data.list[0].weather[0].icon;
 
-    // Update current weather UI
     currentWeatherEl.html(`
       <h2>${data.city.name}</h2>
       <p>Temperature: ${currentWeather.temp} °F</p>
@@ -90,10 +84,18 @@ $(document).ready(function () {
       forecastEl.append(forecastCard);
     }
   }
-
-
+  // Save to local storage
   function addToHistory(city) {
-    // Implement logic to add the city to the search history
-    // Update the 'historyListEl' with the new city
+    var history = JSON.parse(localStorage.getItem('weatherHistory')) || [];
+    history.push(city);
+    localStorage.setItem('weatherHistory', JSON.stringify(history));
+    updateHistoryUI(history);
+  }
+
+  function updateHistoryUI(history) {
+    history.forEach(function (city) {
+      var historyItem = $("<li>").text(city);
+      historyListEl.append(historyItem);
+    });
   }
 });
