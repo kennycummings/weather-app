@@ -58,7 +58,7 @@ $(document).ready(function () {
       <p>Temperature: ${currentWeather.temp} °F</p>
       <p>Humidity: ${currentWeather.humidity}%</p>
       <p>Wind: ${windSpeed} m/s, ${windDeg}&deg;</p>
-      <img src="http://openweathermap.org/img/w/${currentIcon}.png" alt="Current Weather Icon">
+      <img src="https://openweathermap.org/img/w/${currentIcon}.png" alt="Current Weather Icon">
     `);
 
     // Extract and display 5-day forecast
@@ -78,7 +78,7 @@ $(document).ready(function () {
               <p class="card-text">Temperature: ${forecast.temp} °F</p>
               <p class="card-text">Humidity: ${forecast.humidity}%</p>
               <p class="card-text">Wind: ${forecastWindSpeed} m/s, ${forecastWindDeg}&deg;</p>
-              <img src="http://openweathermap.org/img/w/${forecastIcon}.png" alt="Forecast Icon">
+              <img src="https://openweathermap.org/img/w/${forecastIcon}.png" alt="Forecast Icon">
             </div>
           </div>
         </div>
