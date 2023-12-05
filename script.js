@@ -80,22 +80,43 @@ $(document).ready(function () {
         </div>
       `);
 
-      // Append forecast card to the forecast element
       forecastEl.append(forecastCard);
     }
   }
+
   // Save to local storage
   function addToHistory(city) {
-    var history = JSON.parse(localStorage.getItem('weatherHistory')) || [];
+    var history = getHistory();
     history.push(city);
     localStorage.setItem('weatherHistory', JSON.stringify(history));
     updateHistoryUI(history);
   }
 
+  function getHistory() {
+    return JSON.parse(localStorage.getItem('weatherHistory')) || [];
+  }
+
   function updateHistoryUI(history) {
+    var historyListEl = $("#history-list");
+    historyListEl.empty();
+
     history.forEach(function (city) {
-      var historyItem = $("<li>").text(city);
-      historyListEl.append(historyItem);
+      // Create a box around each city button
+      var historyItemBox = $("<div>").addClass("history-item-box");
+      var historyItem = $("<button>").addClass("list-group-item list-group-item-action").text(city);
+
+      historyItemBox.append(historyItem);
+      historyListEl.append(historyItemBox);
+
+      // Add click event to history items
+      historyItem.on("click", function () {
+        getWeatherData(city);
+      });
     });
   }
+
+
+  // Write a GET function to have local storage city display despite a page refresh
+
 });
+
