@@ -117,6 +117,7 @@ $(document).ready(function () {
 
 
   // Write a GET function to have local storage city display despite a page refresh
+  // Wrote part of a GET function
 
 });
 
