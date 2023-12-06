@@ -28,14 +28,4 @@ Screenshots of Application:
 ![Homepage](./Images/screenshot-1.png)
 <br>
 <br>
-![Multiple Choice Bubbles](./Images/screenshot-2.png)
-<br>
-<br>
-![Correct Answer](./Images/screenshot-3.png)
-<br>
-<br>
-![Wrong Answer](./Images/screenshot-4.png)
-<br>
-<br>
-![High Score Display](./Images/screenshot-5.png)
-
+![Search History Buttons](./Images/screenshot-2.png)
